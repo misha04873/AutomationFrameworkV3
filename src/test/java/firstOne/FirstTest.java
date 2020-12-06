@@ -1,6 +1,8 @@
 package firstOne;
 
 import org.junit.Assert;
+//import org.junit.jupiter.api.Assertions; // Нужно заменить
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -120,7 +122,19 @@ public class FirstTest {
 
 
 
+// Тест 6
+// Сортируем
+        driver.findElement(By.className("select-title")).click();
+        driver.findElement(By.xpath("//a[contains(text(),'Цене: от высокой к низкой')]")).isDisplayed();
+        driver.findElement(By.xpath("//a[contains(text(),'Цене: от высокой к низкой')]")).click();
 
+
+// Проверить сортировку по цене
+
+        List<WebElement> elements2 = driver.findElements(By.className("price"));
+        for (WebElement element : elements2) {
+            System.out.println(element.getText());
+        }
 
 
 
