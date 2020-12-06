@@ -1,5 +1,6 @@
 package firstOne;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,9 +44,21 @@ public class FirstTest {
         }
 
 
+
+
+
+
+
+
+
+
 // Тест 2
 //        driver.findElement(By.cssSelector("#_desktop_currency_selector > div")).click();
         ((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[@id=\"_desktop_currency_selector\"]/div/ul/li[3]/a")));
+
+
+
+
 
 
 
@@ -55,6 +68,55 @@ public class FirstTest {
         WebElement searchBox = driver.findElement(By.name("s"));
         searchBox.sendKeys("dress");
         driver.findElement(By.cssSelector("#search_widget > form > button")).click();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Тест 4
+
+// Считаем количество элементов
+        List<WebElement> xpath = driver.findElements(By.className("price"));
+        int xpathCount = xpath.size();
+
+// Достаем количество
+        String currency2 = driver.findElement(By.cssSelector("#js-product-list-top > div.col-md-6.hidden-sm-down.total-products > p")).getText();
+        char ch1 = currency2.charAt(9);
+
+// Сверяем количество
+        int xpathCount2 = Character.getNumericValue(ch1);
+        Assert.assertEquals(xpathCount, xpathCount2);
+
+
+
+
+
+
+//// Тест 5
+//// Достаем валюту с товаров
+//        List<WebElement> elements2 = driver.findElements(By.className("price"));
+//        for (WebElement element : elements2) {
+//        System.out.println(element.getText());
+//        }
+//
+//
+//// Сверяем символ с концом на всех товарах
+//        for (WebElement element : elements2) {
+//            Assert.assertTrue(element.getText().endsWith("₴"));
+//        }
+
 
 
 
